@@ -1,0 +1,18 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://st3.depositphotos.com/1018728/32885/i/600/depositphotos_328859414-stock-photo-projector-in-cinema-hall-with.jpg);">
+  <div class="container">
+    <h1 class="text-center">Save any kind of movies</h1>
+  </div>
+</div>
+<div class="container my-5">
+  <div class="nav-card d-flex justify-content-between">
+    <h2>My list</h2>
+    <a class="btn btn-flat shadow"href="">Create a movie list</a>
+  </div>
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= list.name %>
+      </div>
+    <% end %>
+  </div>
+</div>
