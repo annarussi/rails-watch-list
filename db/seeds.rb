@@ -39,3 +39,9 @@ Movie.create(
 )
 
   puts "Finished!"
+
+List.destroy_all
+
+  List.create(name: "Drama")
+
+  puts "finished lists"

@@ -1,1 +1,28 @@
-<h1>show list</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Gone_With_The_Wind_1967_re-release.jpg/640px-Gone_With_The_Wind_1967_re-release.jpg);">
+  <div class="container">
+    <h1 class="text-center"><%= @list.name %></h1>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div class="nav-card d-flex justify-content-end">
+    <a class="btn btn-flat shadow"href="">+ Add a movie</a>
+  </div>
+
+  <% @list.movies.each do |movie| %>
+    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+    <div class="cards">
+      <div class="card-trip">
+        <img src="<%= movie.poster_url %>"/>
+      <div class="card-trip-infos d-flex flex-column">
+        <div>
+          <h2><strong><%= movie.title %></strong> - <%= movie.rating %> ⭐ </h2>
+          <p><%= movie.overview %></p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="position-left"><strong><i class="fa-solid fa-quote-left"></i> <%= bookmark.comment %></strong></p>
+          <%= link_to "Delete", bookmark_path(bookmark.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+        </div>
+    </div>
+  <% end %>
+</div>
