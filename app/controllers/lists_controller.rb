@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ListsController < ApplicationController
   before_action :set_list, only: [:show]
 
@@ -5,8 +7,7 @@ class ListsController < ApplicationController
     @lists = List.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @list = List.new
@@ -16,7 +17,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
 
     if @list.save
-      redirect_to lists_path
+      redirect_to list_path(@list)
     else
       render :new, status: :unprocessable_entity
     end

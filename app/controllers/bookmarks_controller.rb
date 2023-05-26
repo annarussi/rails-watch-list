@@ -1,9 +1,13 @@
+# frozen_string_literal: true
+
 class BookmarksController < ApplicationController
-  before_action :set_list, only: [:new, :create]
+  before_action :set_list, only: %i[new create]
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
+
+    redirect_to list_path(@bookmark.list_id)
   end
 
   def new
@@ -13,7 +17,7 @@ class BookmarksController < ApplicationController
   def create
     @movie = Movie.find(params[:bookmark][:movie_id])
 
-    @bookmark = Bookmark.new(movie: @movie, list: @list, comment: params[:bookmark][:comment] )
+    @bookmark = Bookmark.new(movie: @movie, list: @list, comment: params[:bookmark][:comment])
 
     if @bookmark.save
       redirect_to list_path(@list)

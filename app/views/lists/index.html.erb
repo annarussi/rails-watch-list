@@ -9,7 +9,9 @@
     <h2>My list</h2>
     <%= link_to "Create a movie list", new_list_path, class: "btn btn-flat shadow" %>
   </div>
+
   <div class="cards">
+
     <% @lists.each do |list| %>
       <%= link_to list_path(list) do %>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Gone_With_The_Wind_1967_re-release.jpg/640px-Gone_With_The_Wind_1967_re-release.jpg)">
@@ -17,5 +19,7 @@
         </div>
       <% end %>
     <% end %>
+    
   </div>
+
 </div>
