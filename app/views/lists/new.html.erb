@@ -1,6 +1,12 @@
-<h1>Create list</h1>
+<div class="list-form">
+  <h1>Create list</h1>
 
-<%= simple_form_for(@list) do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit %>
-<% end %>
+  <%= simple_form_for(@list) do |f| %>
+
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
+
+    <%= f.submit class: "btn-flat" %>
+
+  <% end %>
+</div>

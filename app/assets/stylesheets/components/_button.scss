@@ -18,12 +18,13 @@
   border-radius: 20px;
   background: #a40800;
   transition: background 0.3s ease;
+  &:hover {
+    background: #4b0400;
+    color: white;
+  }
+
 }
 
-.btn-flat:hover {
-  background: #4b0400;
-  color: white;
-}
 
 .btn-gradient {
   color: white;

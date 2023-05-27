@@ -14,12 +14,12 @@
 
     <% @lists.each do |list| %>
       <%= link_to list_path(list) do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Gone_With_The_Wind_1967_re-release.jpg/640px-Gone_With_The_Wind_1967_re-release.jpg)">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
           <%= list.name %>
         </div>
       <% end %>
     <% end %>
-    
+
   </div>
 
 </div>
